@@ -75,4 +75,5 @@ Copy below prompt into the n8n's OpenAI agent component to read order data from 
 
 # References
 
+- [UN/EDIFACTS](https://unece.org/trade/uncefact/unedifact/download)
 - [supply-science](https://n8n.supply-science.com/workflows/Supply_Chain/Electronic_Data_Interchange_(EDI)_Message_Parsing)
