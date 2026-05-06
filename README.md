@@ -9,14 +9,14 @@
 	
 # APIs connections setup
 
-get client codes for below external applications and set into n8n connections manager:
+get client codes for below external applications and set them into the n8n's connections manager:
 
 - Gmail oAuth2  
 - OpenAI token/key
 	
 # AI agent System Message/Prompt configuratrion
 
-Copy below prompt into n8n's OpenAI agent component to read order data from Email (Gmail):
+Copy below prompt into the n8n's OpenAI agent component to read order data from Email (Gmail):
 	
 ```
 	You are an assistant that processes emails related to inbound orders from Hermes.
