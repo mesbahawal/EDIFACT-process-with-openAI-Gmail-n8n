@@ -1,15 +1,19 @@
 # Install n8n
-	- follow instructions at [n8n self hosting] (https://docs.n8n.io/hosting/)
+
+	- follow instructions at [n8n self hosting](https://docs.n8n.io/hosting/)
 	- for connecting local files to the n8n `docker` container, use `composer.yaml` in this repository while installing n8n. Created docker container name will be `n8n-dev-container`
 	
 # Import Workflow template
+
 	- navigate to `templates/` folder and import the `edifact-process.json` file into n8n workflow collections
 	
 # APIs connections setup
+
 	- Gmail oAuth2
 	- OpenAI token/key
 	
 # AI agent System Message/Prompt
+
 	## Copy below prompt in n8n's OpenAI agent component to read order data from Email (Gmail)
 	
 	`
@@ -38,29 +42,31 @@
 	`
 	
 # JSON data-format EDI example
+
 	## JSON input:
+	
 	```
-	{
-		"purchase_order": "PO2545",
-		"expected_delivery_date": "2025-06-20",
-		"lines": [
-		  {"sku": "HERM-SHOE-0001", "quantity": 120},
-		  {"sku": "HERM-BAG-0001", "quantity": 10}
-		]
-	}
+		{
+			"purchase_order": "PO2545",
+			"expected_delivery_date": "2025-06-20",
+			"lines": [
+			  {"sku": "HERM-SHOE-0001", "quantity": 120},
+			  {"sku": "HERM-BAG-0001", "quantity": 10}
+			]
+		}
 	```
 	
 	## JavaScript code:
 	
 	```
-	const{purchase_order, expected_delivery_date, lines} = $input.first().json.output;
+		const{purchase_order, expected_delivery_date, lines} = $input.first().json.output;
 
-	return lines.map( line=> ({
-	  json: {
-		purchase_order,
-		expected_delivery_date,
-		sku: line.sku,
-		quantity: line.quantity
-	  }
-	}))
+		return lines.map( line=> ({
+		  json: {
+			purchase_order,
+			expected_delivery_date,
+			sku: line.sku,
+			quantity: line.quantity
+		  }
+		}))
 	```
