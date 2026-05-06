@@ -1,0 +1,19 @@
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n
+    container_name: n8n-dev-container
+    restart: always
+    ports:
+      - "127.0.0.1:5678:5678"
+    environment:
+      - N8N_HOST=localhost
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - NODE_ENV=development
+      - GENERIC_TIMEZONE=Europe/Berlin
+      - N8N_TEMPLATES_ENABLED=true
+      - N8N_RUNNERS_ENABLED=true
+      - N8N_COMMUNITY_PACKAGES_ENABLED=true
+    volumes:
+      - "C:/Mesbah/n8n/n8n-dev-docker/n8n_data:/home/node/.n8n"
+      - "C:/Mesbah/n8n/n8n-dev-docker/local_files:/var/tmp"
