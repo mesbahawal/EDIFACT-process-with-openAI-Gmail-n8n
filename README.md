@@ -61,14 +61,14 @@ Copy below prompt into n8n's OpenAI agent component to read order data from Emai
 ## JavaScript code:
 	
 ```
-		const{purchase_order, expected_delivery_date, lines} = $input.first().json.output;
+	const{purchase_order, expected_delivery_date, lines} = $input.first().json.output;
 
-		return lines.map( line=> ({
-		  json: {
-			purchase_order,
-			expected_delivery_date,
-			sku: line.sku,
-			quantity: line.quantity
-		  }
-		}))
+	return lines.map( line=> ({
+	  json: {
+		purchase_order,
+		expected_delivery_date,
+		sku: line.sku,
+		quantity: line.quantity
+	  }
+	}))
 ```
